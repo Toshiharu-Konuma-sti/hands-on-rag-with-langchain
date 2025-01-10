@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+
+  attu:
+    container_name: milvus-attu
+    image: zilliz/attu:v2.4.12
+    environment:
+      MILVUS_URL: milvus-standalone:19530
+    ports:
+      - "8000:3000"
+    depends_on:
+      - "standalone"
+

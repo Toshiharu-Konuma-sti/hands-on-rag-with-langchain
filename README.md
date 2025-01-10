@@ -1,1 +1,1 @@
-# hands-on-rag-with-langchain
+# Hands-on Training for RAG with LangChain
