@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pip install notebook
-jupyter notebook
+pip install jupyterlab
+jupyter lab
 
