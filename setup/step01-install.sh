@@ -16,5 +16,5 @@ echo "### START: Install a tool to create isolated Python environment ##########
 if [ "$(uname)" = "Darwin" ]; then	# for Mac
 	pip install virtualenv
 else
-	sudo apt install -y python3-venv
+	sudo apt install -y python-is-python3 python3-pip python3-venv
 fi
