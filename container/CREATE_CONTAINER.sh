@@ -9,6 +9,7 @@ echo "# START SCRIPT"
 echo "############################################################"
 
 VOL_DIR=$CUR_DIR/volumes/
+VDB_YML=https://github.com/milvus-io/milvus/releases/download/v2.5.0-beta/milvus-standalone-docker-compose.yml
 
 echo "\n### START: Destory existing containers ##########"
 docker-compose \
@@ -36,7 +37,7 @@ if [ $? -ne 0 ]; then
 	fi
 fi
 wget \
-	https://github.com/milvus-io/milvus/releases/download/v2.5.0-beta/milvus-standalone-docker-compose.yml \
+	$VDB_YML \
 	-O docker-compose.yml
 
 echo "\n### START: Create new containers ##########"
