@@ -1,6 +1,6 @@
 # Hands-on Training for RAG with LangChain
 
-ハンズオンの教材一覧
+## ハンズオンの教材一覧
 
 - [Step 1: 構造化データのVector DB登録](./try-my-hand/lesson/rag-step01-excel_to_vectordb.ipynb)
 - [Step 2: Vector DBで類似検索](./try-my-hand/lesson/rag-step02-search_from_vectordb.ipynb)
