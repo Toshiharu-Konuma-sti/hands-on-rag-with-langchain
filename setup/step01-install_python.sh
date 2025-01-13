@@ -16,6 +16,7 @@ if [ "$(uname)" = "Darwin" ]; then	# for Mac
 ############################################################
 EOS
 		exit
+		#	python3 -m ensurepip
 	fi
 	pip install virtualenv
 else
