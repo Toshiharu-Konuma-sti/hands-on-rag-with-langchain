@@ -8,7 +8,7 @@ echo "############################################################"
 echo "# START SCRIPT"
 echo "############################################################"
 
-$CUR_DIR/step01-install.sh
+$CUR_DIR/step01-install_python.sh
 
 E_TIME=$(date +%s)
 DURATION=$((E_TIME - S_TIME))
