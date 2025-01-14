@@ -9,14 +9,7 @@ echo "### START: Install a tool to create isolated Python environment ##########
 if [ "$(uname)" = "Darwin" ]; then	# for Mac
 	which pip
 	if [ $? -ne 0 ]; then
-		cat << EOS
-############################################################
-### Notice:
-### - This script was interruped. Please install pip first.
-############################################################
-EOS
-		exit
-		#	python3 -m ensurepip
+		python3 -m ensurepip
 	fi
 	pip install virtualenv
 else
