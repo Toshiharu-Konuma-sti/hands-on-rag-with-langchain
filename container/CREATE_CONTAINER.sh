@@ -9,7 +9,7 @@ echo "# START SCRIPT"
 echo "############################################################"
 
 VOL_DIR=$CUR_DIR/volumes/
-VDB_YML=https://github.com/milvus-io/milvus/releases/download/v2.5.0-beta/milvus-standalone-docker-compose.yml
+VDB_YML=https://github.com/milvus-io/milvus/releases/download/v2.5.2/milvus-standalone-docker-compose.yml
 
 echo "\n### START: Destory existing containers ##########"
 docker-compose \
