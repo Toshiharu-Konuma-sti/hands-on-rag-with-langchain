@@ -11,9 +11,9 @@ class MyBanner:
     @staticmethod
     def passing(message):
         n_time = time.perf_counter()
-        print(">>> %s (lap time = %d sec)" % (message, n_time - MyBanner.s_time))
+        print(">>> %s (lap time = %.2f sec)" % (message, n_time - MyBanner.s_time))
 
     @staticmethod
     def finish():
     	e_time = time.perf_counter()
-    	print("### FINISH (%s > duration = %d sec) ###########" % (datetime.datetime.now(), e_time - MyBanner.s_time))
+    	print("### FINISH (%s > duration = %.2f sec) ###########" % (datetime.datetime.now(), e_time - MyBanner.s_time))
