@@ -83,25 +83,9 @@ class MyGenerator:
     def __format_docs(docs):
         return "* " + "\n* ".join(doc.page_content for doc in docs)
 
-    @staticmethod
-    def __get_type_of_gpu():
-        mygpu = 'cpu'
-        if torch.cuda.is_available():
-            mygpu = 'cuda'
-        elif torch.backends.mps.is_available():
-            mygpu = 'mps'
-        print("* gpu = '%s'" % mygpu)
-        return mygpu
-
-    @staticmethod
-    def __get_device(mygpu):
-        return torch.device(mygpu)
-
     def __get_custom_llm(self, trained_model_name, access_token):
         my_method = inspect.currentframe().f_code.co_name
         print(">>> 1/4[%s]: model = AutoModelForCausalLM.from_pretrained()" % (my_method))
-        mygpu = MyGenerator.__get_type_of_gpu()
-        mydevice = MyGenerator.__get_device(mygpu)
         model = AutoModelForCausalLM.from_pretrained(
             trained_model_name,
             device_map = "auto",
@@ -109,7 +93,7 @@ class MyGenerator:
             torch_dtype = "auto",
             trust_remote_code = True,
             token = access_token,
-        ).to(mydevice)    
+        )
         print(">>> 2/4[%s]: tokenizer = AutoTokenizer.from_pretrained()" % (my_method))
         tokenizer = AutoTokenizer.from_pretrained(
             trained_model_name,
