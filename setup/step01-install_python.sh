@@ -5,7 +5,7 @@ CUR_DIR=$(cd $(dirname $0); pwd)
 
 call_show_start_banner
 
-echo "### START: Install a tool to create isolated Python environment ##########"
+echo "### START: Install pip and a tool to create isolated Python environment ##########"
 if [ "$(uname)" = "Darwin" ]; then	# for Mac
 	which pip
 	if [ $? -ne 0 ]; then

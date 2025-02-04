@@ -173,8 +173,8 @@ cython_debug/
 # add definitions I personally need.
 *.swp
 .python-version
-container/docker-compose.yml
-container/volumes/
+docker/docker-compose.yml
+docker/volumes/
 try-my-hand/.venv/
 
 
