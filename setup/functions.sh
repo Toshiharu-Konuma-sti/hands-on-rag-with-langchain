@@ -7,11 +7,11 @@ call_own_fname()
 }
 # }}}
 
-# {{{ call_path_of_docker()
+# {{{ call_path_of_container()
 # $1: the current directory
-call_path_of_docker()
+call_path_of_container()
 {
-	TARGET=$(realpath $1/../docker)
+	TARGET=$(realpath $1/../container)
 	echo "$TARGET"
 }
 # }}}
