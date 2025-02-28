@@ -22,7 +22,7 @@ context:
 
     def extract_answer_from_response(self, response):
         answer = re.sub(".*<|start_header_id|>assistant<|end_header_id|>", "", response, flags=(re.DOTALL))
-        answer = re.sub("\|\|", "", answer, flags=(re.DOTALL))
+#        answer = re.sub("\|\|", "", answer, flags=(re.DOTALL))
         answer = answer.strip()
         return answer
 

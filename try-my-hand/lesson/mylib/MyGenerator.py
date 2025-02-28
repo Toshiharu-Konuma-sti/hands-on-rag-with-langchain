@@ -114,15 +114,15 @@ class MyGenerator:
         return llm
 
     def __create_template(self, model_name):
-        template = None;
+        template_obj = None;
         if 'google/gemma' in model_name:
-            template = MyTemplateImpl4Gemma()
+            template_obj = MyTemplateImpl4Gemma()
         elif 'microsoft/Phi' in model_name:
-            template = MyTemplateImpl4MsPhi()
+            template_obj = MyTemplateImpl4MsPhi()
         elif 'cyberagent/open-calm' in model_name:
-            template = MyTemplateImpl4OpenCalm()
+            template_obj = MyTemplateImpl4OpenCalm()
         elif 'rinna/japanese-gpt' in model_name:
-            template = MyTemplateImpl4RinnaJpGpt()
+            template_obj = MyTemplateImpl4RinnaJpGpt()
         elif 'meta-llama/Llama' in model_name:
-            template = MyTemplateImpl4Llama3()
-        return template
+            template_obj = MyTemplateImpl4Llama3()
+        return template_obj
