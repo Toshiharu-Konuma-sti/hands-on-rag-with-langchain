@@ -7,3 +7,10 @@
 - [Step 3: LLM Template作成](./try-my-hand/lesson/rag-step03-llm_template.ipynb)
 - [Step 4: Retriever+Generator構築](./try-my-hand/lesson/rag-step04-retriever_and_generator.ipynb)
 - [Step 5: Web UI (Chatting with Open LLM)](./try-my-hand/lesson/rag-step05-web_ui_to_chat_with_llm.ipynb)
+
+## RAGの仕組み
+
+| 仕組みを表したイラスト | 仕組みの流れを説明 |
+| :----: | ---- |
+| <img src="./try-my-hand/image/rag-overview.gif"><br>アニメーション版（仕組みの流れを理解） | 1から2はベクトルデータベースに類似検索に利用するデータの蓄積フェーズを意味し、<br>3から9はベクトルデータベースに蓄積されたデータを類似検索で活用する応用フェーズを意味します。<ol><li>日々の経済活動を通じて、以下をはじめとするデータが企業のシステムに溜まります</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li></ol> |
+| <img src="./try-my-hand/image/rag-overview.png"><br>静止画版（仕組みの全体像を理解） | TD |
