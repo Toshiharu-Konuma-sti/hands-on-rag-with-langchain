@@ -13,4 +13,10 @@
 | 仕組みを表したイラスト | 仕組みの流れを説明 |
 | :----: | ---- |
 | <img src="./try-my-hand/image/rag-overview.gif"><br>アニメーション版（仕組みの流れを理解） | 1から2はベクトルデータベースに類似検索に利用するデータの蓄積フェーズを意味し、<br>3から9はベクトルデータベースに蓄積されたデータを類似検索で活用する応用フェーズを意味します。<ol><li>日々の経済活動を通じて、以下をはじめとするデータが企業のシステムに溜まります</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li></ol> |
-| <img src="./try-my-hand/image/rag-overview.png"><br>静止画版（仕組みの全体像を理解） | TD |
+| <img src="./try-my-hand/image/rag-overview.png"><br>静止画版（仕組みの全体像を理解） | ^ |
+
+<table>
+<tr><th>仕組みを表したイラスト</th><th>仕組みの流れを説明</th></tr>
+<tr><td witdh="50%"><img src="./try-my-hand/image/rag-overview.gif"><br>アニメーション版（仕組みの流れを理解）</td><td witdh="50%" rowspan="2">1から2はベクトルデータベースに類似検索に利用するデータの蓄積フェーズを意味し、<br>3から9はベクトルデータベースに蓄積されたデータを類似検索で活用する応用フェーズを意味します。<ol><li>日々の経済活動を通じて、以下をはじめとするデータが企業のシステムに溜まります</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li></ol></td></tr>
+<tr><td><img src="./try-my-hand/image/rag-overview.png"><br>静止画版（仕組みの全体像を理解）</td><td></td></tr>
+</table>
