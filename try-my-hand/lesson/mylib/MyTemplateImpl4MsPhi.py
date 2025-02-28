@@ -26,7 +26,7 @@ userからの質問に回答してください。<|end|>
 
     def extract_answer_from_response(self, response):
         answer = re.sub(".*<|assistant|>", "", response, flags=(re.DOTALL))
-        answer = re.sub("^\|\|", "", answer, flags=(re.DOTALL))
+#        answer = re.sub("^\|\|", "", answer, flags=(re.DOTALL))
         answer = answer.strip()
         return answer
 
