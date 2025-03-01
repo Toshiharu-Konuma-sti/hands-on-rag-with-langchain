@@ -5,7 +5,7 @@
 1. [RAGの仕組み](#1-ragの仕組み)
 2. [ハンズオン教材 with JupyterLab](#2-ハンズオン教材-with-jupyterlab)
 	- 2.1. [教材一覧](#21-教材一覧)
-	- 2.2. [ステップごとの教材説明](#22-ステップごとの教材説明)
+	- 2.2. [ステップごとの教材内容](#22-ステップごとの教材内容)
 
 ---
 
@@ -44,10 +44,10 @@
 - [Step 4: Retriever+Generator構築](./try-my-hand/lesson/rag-step04-retriever_and_generator.ipynb)
 - [Step 5: Web UI (Chatting with Open LLM)](./try-my-hand/lesson/rag-step05-web_ui_to_chat_with_llm.ipynb)
 
-### 2.2. ステップごとの教材説明
+### 2.2. ステップごとの教材内容
 
 <table>
-<tr><th width="50%">RAG の仕組みでステップごとの教材が該当する箇所</th><th width="50%">ステップごとの教材でハンズオンできる内容</th></tr>
+<tr><th width="50%">RAG の仕組みで各ステップが該当する箇所</th><th width="50%">各ステップでハンズオンできる内容</th></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step1.png"></td><td>
 <b>ステップ1:</b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step01-excel_to_vectordb.ipynb">Step 1: 構造化データのVector DB登録</a></li></ul>
