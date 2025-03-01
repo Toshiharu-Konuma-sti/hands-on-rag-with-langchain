@@ -11,9 +11,9 @@
 ## RAGの仕組み
 
 <table>
-<tr><th colspan="2">仕組みを表したイラスト</th><th></th></tr>
+<tr><th colspan="2">仕組みを表したイラスト</th></tr>
 <tr><td width="50%"><img src="./try-my-hand/image/rag-overview.gif"><br>アニメーション版（流れを表現）</td><td  width="50%"><img src="./try-my-hand/image/rag-overview.png"><br>静止画版（全体像を表現）</td></tr>
-<tr><th colspan="2">仕組みの流れを説明</th><th></th></tr>
+<tr><th colspan="2">仕組みの流れを説明</th></tr>
 <tr><td colspan="2">
 1から2はベクトルデータベースに類似検索に利用するデータの蓄積フェーズを意味し、<br>3から9はベクトルデータベースに蓄積されたデータを類似検索で活用する応用フェーズを意味します。
 <ol>
@@ -28,7 +28,7 @@
 <li>LLMが生成された回答案を戻します</li>
 <li>LLMから戻された回答案を整形して質問者に回答を戻します</li>
 </ol>
-</td><td></td></tr>
+</td></tr>
 </table>
 
 
