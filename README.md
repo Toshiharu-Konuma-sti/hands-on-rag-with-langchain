@@ -49,31 +49,31 @@
 <table>
 <tr><th width="50%">RAG の仕組みでステップごとの教材が該当する箇所</th><th width="50%">ステップごとの教材でハンズオンできる内容</th></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step1.png"></td><td>
-ステップ1の教材にあたる Notebook は以下 GitHub にて確認できます。
+<b>ステップ1:<b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step01-excel_to_vectordb.ipynb">Step 1: 構造化データのVector DB登録</a></li></ul>
 該当のステップでは、
 RAGに必要な類似検索で利用するベクトルデータベースの環境を整えることを目的に、構造化データとして用意したExcelファイルをベクトル化してベクトルデータベースに保存する過程を経験します。
 </td></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step2.png"></td><td>
-ステップ2の教材にあたる Notebook は以下 GitHub にて確認できます。
+<b>ステップ2:<b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step02-search_from_vectordb.ipynb">Step 2: Vector DBで類似検索</a></li></ul>
 該当のステップでは、
 ひとつ前のステップで構造化データを登録したベクトルデータベースから、サンプルのクエリを投入して類似検索を実行する過程を経験します。
 </td></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step3.png"></td><td>
-ステップ3の教材にあたる Notebook は以下 GitHub にて確認できます。
+<b>ステップ3:<b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step03-llm_template.ipynb">Step 3: LLM Template作成</a></li></ul>
 該当のステップでは、
 質問者から投げかけられたクエリーと類似検索で得られた類似情報を使って、LLMに回答案の作成を依頼するために必要なテンプレートを準備する過程を経験します。
 </td></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step4.png"></td><td>
-ステップ4の教材にあたる Notebook は以下 GitHub にて確認できます。
+<b>ステップ4:<b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step04-retriever_and_generator.ipynb">Step 4: Retriever+Generator構築</a></li></ul>
 該当のステップでは、
 ここまでに経験してきた類似検索と準備したテンプレートを活用して、RetrieverとGeneratorを実装する過程を経験します。
 </td></tr>
 <tr><td><img src="./try-my-hand/image/rag-overview-step5.png"></td><td>
-ステップ5の教材にあたる Notebook は以下 GitHub にて確認できます。
+<b>ステップ5:<b><br>教材の Notebook は以下 GitHub にて確認できます。
 <ul><li><a href="./try-my-hand/lesson/rag-step05-web_ui_to_chat_with_llm.ipynb">Step 5: Web UI (Chatting with Open LLM)</a></li></ul>
 該当のステップでは、
 ステップ2以降で経験してきたナレッジを活用して簡易的な RAG アプリケーションの構築を経験します。
