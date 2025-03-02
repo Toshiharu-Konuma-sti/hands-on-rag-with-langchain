@@ -12,6 +12,7 @@ from mylib.MyTemplateImpl4MsPhi import MyTemplateImpl4MsPhi
 from mylib.MyTemplateImpl4OpenCalm import MyTemplateImpl4OpenCalm
 from mylib.MyTemplateImpl4RinnaJpGpt import MyTemplateImpl4RinnaJpGpt
 from mylib.MyTemplateImpl4Llama3 import MyTemplateImpl4Llama3
+from mylib.MyTemplateImpl4DeepSeek import MyTemplateImpl4DeepSeek
 
 class MyGenerator:
 
@@ -141,4 +142,6 @@ class MyGenerator:
             template_obj = MyTemplateImpl4RinnaJpGpt()
         elif 'meta-llama/Llama' in model_name:
             template_obj = MyTemplateImpl4Llama3()
+        elif '/DeepSeek' in model_name:
+            template_obj = MyTemplateImpl4DeepSeek()
         return template_obj
