@@ -4,6 +4,8 @@ from langchain_huggingface import HuggingFacePipeline
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 import inspect
+import json
+import sys
 
 from mylib.MyTemplateImpl4Gemma import MyTemplateImpl4Gemma
 from mylib.MyTemplateImpl4MsPhi import MyTemplateImpl4MsPhi
@@ -81,7 +83,21 @@ class MyGenerator:
     # Replace similarity informations retrieved from vector db into a placeholder of context.
     @staticmethod
     def __format_docs(docs):
-        return "* " + "\n* ".join(doc.page_content for doc in docs)
+        # return "* " + "\n* ".join(doc.page_content for doc in docs)
+        index = 0
+        content = ""
+        for doc in docs:
+            index += 1
+            try:
+                jobj = json.loads(doc.page_content)
+                content += ("- %d:\n" % (index))
+                for mykey in jobj.keys():
+                    content += ("\t- %s: %s\n" % (mykey, jobj[mykey]))
+            except json.JSONDecodeError as e:
+                print(sys.exc_info())
+                print(e)
+                content += ("- %s\n" % (doc.page_content))
+        return content
 
     def __get_custom_llm(self, trained_model_name, access_token):
         my_method = inspect.currentframe().f_code.co_name
