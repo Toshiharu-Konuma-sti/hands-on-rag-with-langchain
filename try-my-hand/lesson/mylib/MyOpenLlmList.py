@@ -15,6 +15,7 @@ class MyOpenLlmList:
         'rinna/japanese-gpt2-medium', # 10
         'rinna/japanese-gpt-1b', # 11
         'rinna/japanese-gpt-neox-3.6b-instruction-sft-v2', # 12
+        'lightblue/DeepSeek-R1-Distill-Qwen-1.5B-Multilingual', #13
     ]
 
     def __init__(self, enables = []):
