@@ -37,8 +37,8 @@
 ## 2. ハンズオン教材 with JupyterLab
 
 <table>
-<tr><td width="50%"><img src="./try-my-hand/image/chatting_with_openllm.png"></td><td width="50%"><p>AI を活用した RAG アプリケーションについて、LangChain、Open LLM、およびベクトルデータベースの Milvus をはじめとするオープンソースのプロダクトと、JupyterLab（Jupyter Notebook） の Notebook 形式で用意した教材を使って、RAG の仕組みと実装例を体験することができます。</p>
-<p>ステップ1から4までの教材では、仕組みをパーツごとに分けて実装を進める流れで理解を深め、最後のステップ5ではこれまでの集大成として、それぞれのステップで用意したパーツを使い、Web UI の RAG アプリケーションを構築して楽しんで頂きます。</p></td></tr>
+<tr><td width="50%"><img src="./try-my-hand/image/chatting_with_openllm.png"></td><td width="50%"><p>AI を活用した RAG アプリケーションについて、LangChain、Open LLM、およびベクトルデータベースの Milvus をはじめとするオープンソースのみのプロダクトと、JupyterLab（Jupyter Notebook） の Notebook 形式で用意したステップごとの教材を使って、RAG の仕組みを体験することができます。</p>
+<p>ステップ1から4までは、仕組みをパーツごとに分けて理解を深め、ステップ5では集大成として、これまでに用意したパーツを使い、Web UI の RAG アプリケーションを楽しんで頂きます。</p></td></tr>
 </table>
 
 ### 2.1. 教材一覧
