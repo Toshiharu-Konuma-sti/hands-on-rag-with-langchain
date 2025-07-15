@@ -1,4 +1,4 @@
-#!/bin/sh
+@echo off
 
 pip install jupyterlab
 jupyter lab

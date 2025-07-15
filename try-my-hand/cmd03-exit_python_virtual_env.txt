@@ -1,4 +1,3 @@
 * Enter the command below to exit the python virtual environment!!
 
 deactivate
-
