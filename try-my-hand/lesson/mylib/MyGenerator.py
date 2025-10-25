@@ -102,21 +102,44 @@ class MyGenerator:
 
     def __get_custom_llm(self, trained_model_name, access_token):
         my_method = inspect.currentframe().f_code.co_name
-        print(">>> 1/4[%s]: model = AutoModelForCausalLM.from_pretrained()" % (my_method))
-        model = AutoModelForCausalLM.from_pretrained(
-            trained_model_name,
-            device_map = "auto",
-            low_cpu_mem_usage = True,
-            torch_dtype = "auto",
-            trust_remote_code = True,
-            token = access_token,
-        )
-        print(">>> 2/4[%s]: tokenizer = AutoTokenizer.from_pretrained()" % (my_method))
+        print(">>> 1/5[%s]: Check the environment for Intel hardware or other hardware" % (my_method))
+        IS_AVAILABLE_OVMODEL = False
+        if torch.backends.mps.is_available() or torch.cuda.is_available():
+            print("- MPS or CUDA is available.")
+        else:
+            try:
+                from optimum.intel import OVModelForCausalLM
+                IS_AVAILABLE_OVMODEL = True
+                print("- OpenVINO (optimum-intel) is available.")
+            except ImportError:
+                print("- OpenVINO (optimum-intel) not found. Will use PyTorch (AutoModelForCausalLM).")
+        print(">>> 2/5[%s]: Create a model" % (my_method))
+        if IS_AVAILABLE_OVMODEL:
+            print("- It will use OVModelForCausalLM.from_pretrained().")
+            model = OVModelForCausalLM.from_pretrained(
+                trained_model_name,
+                export=True,
+                device="auto",
+            )
+            print("- model was created by OVModelForCausalLM.from_pretrained().")
+        else:
+            print("- It will use AutoModelForCausalLM.from_pretrained().")
+            model = AutoModelForCausalLM.from_pretrained(
+                trained_model_name,
+                device_map = "auto",
+                low_cpu_mem_usage = True,
+                torch_dtype = "auto",
+                trust_remote_code = True,
+                token = access_token,
+            )
+            print("- model was created by AutoModelForCausalLM.from_pretrained().")
+        print(f"- {model.device=}")
+        print(">>> 3/5[%s]: tokenizer = AutoTokenizer.from_pretrained()" % (my_method))
         tokenizer = AutoTokenizer.from_pretrained(
             trained_model_name,
             token = access_token
         )
-        print(">>> 3/4[%s]: pipe = pipeline()" % (my_method))
+        print(">>> 4/5[%s]: pipe = pipeline()" % (my_method))
         pipe = pipeline(
             'text-generation',
             model = model,
@@ -124,7 +147,7 @@ class MyGenerator:
             max_new_tokens = 1024,
             torch_dtype = "auto",
         )
-        print(">>> 4/4[%s]: llm = HuggingFacePipeline()" % (my_method))
+        print(">>> 5/5[%s]: llm = HuggingFacePipeline()" % (my_method))
         llm = HuggingFacePipeline(
             pipeline=pipe
         )
