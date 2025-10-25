@@ -14,7 +14,7 @@ context:
 {question}<|eot_id|>
 <|start_header_id|>assistant<|end_header_id|>"""
         return template
-        
+
     def get_template_for_not_retriever(self):
         template = """<|start_header_id|>system<|end_header_id|>
 あなたは親切で、礼儀正しく、誠実で優秀な日本人のアシスタントです。

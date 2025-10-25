@@ -9,7 +9,7 @@ class MyTemplateImpl4RinnaJpGpt(MyTemplateInterface):
 {context}
 A: """
         return template
-        
+
     def get_template_for_not_retriever(self):
         template = """Q: {question}
 A: """

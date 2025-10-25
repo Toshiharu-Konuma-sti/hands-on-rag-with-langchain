@@ -53,11 +53,11 @@ class MyTemplateInterface(metaclass=abc.ABCMeta):
 """
 
     test_question = "パソコンの使い方を学べるセミナーを教えてください"
-    
+
     @abc.abstractmethod
     def get_template_for_use_retriever(self):
         raise NotImplementedError()
-        
+
     @abc.abstractmethod
     def get_template_for_not_retriever(self):
         raise NotImplementedError()

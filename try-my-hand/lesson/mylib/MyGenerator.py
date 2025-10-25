@@ -1,8 +1,8 @@
 import torch
 from transformers import (AutoModelForCausalLM, AutoTokenizer, pipeline)
 from langchain_huggingface import HuggingFacePipeline
-from langchain.prompts import PromptTemplate
-from langchain.schema.runnable import RunnablePassthrough
+from langchain_core.prompts import PromptTemplate
+from langchain_core.runnables import RunnablePassthrough
 import inspect
 import json
 import sys
