@@ -20,7 +20,7 @@ case "$1" in
 		modify_yaml_for_milvus "${CUR_DIR}" "${DOCK_COMP_MILV}"
 		create_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
 		show_list_container
-		show_url
+		show_url "1"
 		finish_banner ${S_TIME}
 		;;
 	"list")
@@ -38,7 +38,7 @@ case "$1" in
 		modify_yaml_for_milvus "${CUR_DIR}" "${DOCK_COMP_MILV}"
 		create_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
 		show_list_container
-		ehow_url
+		show_url "1"
 		finish_banner ${S_TIME}
 		;;
 	*)

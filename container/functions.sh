@@ -173,7 +173,9 @@ show_list_container(){
 # }}}
 
 # {{{ show_url()
+# $1: the flag to open an url in a browser
 show_url(){
+	OP_FLG="$1"
 	cat << EOS
 
 /************************************************************
@@ -186,9 +188,10 @@ show_url(){
 
 EOS
 
-#	if [ "$(uname)" = 'Darwin' ]; then	# for Mac
-#		open http://localhost:8000
-#	fi
+	if [ "$(uname)" = 'Darwin' -a "${OP_FLG}" = "1" ]; then	# for Mac
+		echo "Opening Attu in your browser..."
+		open http://localhost:8000
+	fi
 }
 # }}}
 
