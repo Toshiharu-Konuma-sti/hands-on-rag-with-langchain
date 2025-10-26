@@ -14,7 +14,7 @@ context:
 {question}<|end|>
 <|assistant|>"""
         return template
-        
+
     def get_template_for_not_retriever(self):
         template = """<|system|>
 あなたは親切で、礼儀正しく、誠実で優秀な日本人のアシスタントです。

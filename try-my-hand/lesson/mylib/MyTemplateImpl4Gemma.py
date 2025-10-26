@@ -14,7 +14,7 @@ context:
 {question}<end_of_turn>
 <start_of_turn>model"""
         return template
-        
+
     def get_template_for_not_retriever(self):
         template = """<start_of_turn>system
 あなたは親切で、礼儀正しく、誠実で優秀な日本人のアシスタントです。

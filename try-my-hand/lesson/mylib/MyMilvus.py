@@ -41,7 +41,7 @@ class MyMilvus:
             drop_old = True, # If adding data, you should set False here.
         )
         return collection
-    
+
     def get_retriever(self, collection, k = None, score = None):
         if (k is None):
             retriever = collection.as_retriever()
