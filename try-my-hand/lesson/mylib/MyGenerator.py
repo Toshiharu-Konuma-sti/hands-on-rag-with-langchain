@@ -120,6 +120,8 @@ class MyGenerator:
                 trained_model_name,
                 export=True,
                 device="auto",
+                trust_remote_code = True,
+                token = access_token,
             )
             print("- model was created by OVModelForCausalLM.from_pretrained().")
         else:
