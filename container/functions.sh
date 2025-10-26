@@ -143,18 +143,11 @@ destory_container(){
 # }}}
 
 # {{{ clean_up_volume()
-# $1: a volume folder to clean up
 clean_up_volume(){
-	VOL_DIR=$1
-	echo "\n### START: Clean up a volume folder ##########"
-	if [ -d $VOL_DIR ]; then
-		# sort a processing depend on a directory's owner(yourself or other).
-		if [ "$(ls -ld $VOL_DIR | awk '{print $3}')" = $USER ]; then
-			rm -rf $VOL_DIR
-		else
-			sudo rm -rf $VOL_DIR
-		fi
-	fi
+	echo "\n### START: Clean up volumes ##########"
+	docker volume rm milvus-etcd
+	docker volume rm milvus-minio
+	docker volume rm milvus-data
 }
 # }}}
 
