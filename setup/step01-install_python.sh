@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CUR_DIR=$(cd $(dirname $0); pwd)
-. $CUR_DIR/functions.sh
+. ${CUR_DIR}/functions.sh
 
 call_show_start_banner
 
@@ -13,7 +13,14 @@ if [ "$(uname)" = "Darwin" ]; then	# for Mac
 	fi
 	pip install virtualenv
 else
-	sudo apt install -y python3-pip python3-venv
+	which python3
+	if [ $? -ne 0 ]; then
+		sudo apt install -y python3-pip
+	fi
+	python3 -c "import venv"
+	if [ $? -ne 0 ]; then
+		sudo apt install -y python3-venv
+	fi
 fi
 
 call_show_finish_banner

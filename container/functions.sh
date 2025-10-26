@@ -21,6 +21,67 @@ finish_banner(){
 # }}}
 
 
+# {{{ call_own_fname()
+call_own_fname()
+{
+	OFNM=$(basename $0)
+	echo "$OFNM"
+}
+# }}}
+
+# {{{ call_path_of_container()
+# $1: the current directory
+call_path_of_container()
+{
+	TARGET=$(realpath $1/../container)
+	echo "$TARGET"
+}
+# }}}
+
+# {{{ call_path_of_setup()
+# $1: the current directory
+call_path_of_setup()
+{
+	TARGET=$(realpath $1/../setup)
+	echo "$TARGET"
+}
+# }}}
+
+# {{{ call_path_of_development()
+# $1: the current directory
+call_path_of_development()
+{
+	TARGET=$(realpath $1/../development)
+	echo "$TARGET"
+}
+# }}}
+
+# {{{ call_path_of_experience()
+# $1: the current directory
+call_path_of_experience()
+{
+	TARGET=$(realpath $1/../try-my-hand)
+	echo "$TARGET"
+}
+# }}}
+
+# {{{ call_show_start_banner()
+# $0: the name of the script being executed 
+call_show_start_banner()
+{
+	echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n> START: Script = [$(call_own_fname)]\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+}
+# }}}
+
+# {{{ call_show_finish_banner()
+# $0: the name of the script being executed 
+call_show_finish_banner()
+{
+	echo "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n< FINISH: Script = [$(call_own_fname)]\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+}
+# }}}
+
+
 # {{{ get_yaml_for_milvus()
 # $1: URL of docker compose file to create Milvus
 get_yaml_for_milvus(){
@@ -34,15 +95,15 @@ get_yaml_for_milvus(){
 			sudo apt install wget
 		fi
 	fi
-	wget \
-		$VDB_YML \
-		-O docker-compose-milvus.yml
+	wget $VDB_YML -O docker-compose-milvus.yml
 }
 # }}}
 
 # {{{ modify_yaml_for_milvus()
 modify_yaml_for_milvus()
 {
+	CUR_DIR=$1
+
 	cat << EOS >> ${CUR_DIR}/docker-compose-milvus.yml
 
 
