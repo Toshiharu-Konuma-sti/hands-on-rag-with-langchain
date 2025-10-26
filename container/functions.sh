@@ -84,8 +84,12 @@ call_show_finish_banner()
 
 # {{{ get_yaml_for_milvus()
 # $1: URL of docker compose file to create Milvus
+# $2: the current directory
+# $3: the docker compose file for Milvus
 get_yaml_for_milvus(){
-	VDB_YML=$1
+	YML_URL=$1
+	CUR_DIR=$2
+	DC_MILV=$3
 	echo "\n### START: Get docker-compose.yml from Milvus's git repogitory  ##########"
 	which wget
 	if [ $? -ne 0 ]; then
@@ -95,16 +99,20 @@ get_yaml_for_milvus(){
 			sudo apt install wget
 		fi
 	fi
-	wget $VDB_YML -O docker-compose-milvus.yml
+	wget ${YML_URL} -O ${CUR_DIR}/${DC_MILV}
 }
 # }}}
 
 # {{{ modify_yaml_for_milvus()
+# $1: the current directory
+# $2: the docker compose file for Milvus
 modify_yaml_for_milvus()
 {
 	CUR_DIR=$1
+	DC_MILV=$2
+	echo "\n### START: Modify docker-compose.yml to use a storege managed by docker  ##########"
 
-	cat << EOS >> ${CUR_DIR}/docker-compose-milvus.yml
+	cat << EOS >> ${CUR_DIR}/${DC_MILV}
 
 
 volumes:
@@ -117,37 +125,42 @@ EOS
 		-e "s#\${DOCKER_VOLUME_DIRECTORY:-\.}/volumes/etcd#milvus-etcd#" \
 		-e "s#\${DOCKER_VOLUME_DIRECTORY:-\.}/volumes/minio#milvus-minio#" \
 		-e "s#\${DOCKER_VOLUME_DIRECTORY:-\.}/volumes/milvus#milvus-data#" \
-		${CUR_DIR}/docker-compose-milvus.yml
-	rm -f "${CUR_DIR}/docker-compose-milvus.yml.bak"
+		${CUR_DIR}/${DC_MILV}
+	rm -f "${CUR_DIR}/${DC_MILV}.bak"
 }
 # }}}
 
 # {{{ create_container()
-create_container(){
+# $1: the current directory
+# $2: the docker compose file for Milvus
+# $3: the docker compose file for Attu
+create_container()
+{
+	CUR_DIR=$1
+	DC_MILV=$2
+	DC_ATTU=$3
 	echo "\n### START: Create new containers ##########"
 	docker-compose \
-		-f docker-compose-milvus.yml \
-		-f docker-compose-attu.yml \
+		-f ${CUR_DIR}/${DC_MILV} \
+		-f ${CUR_DIR}/${DC_ATTU} \
 		up -d
 }
 # }}}
 
 # {{{ destory_container()
-destory_container(){
+# $1: the current directory
+# $2: the docker compose file for Milvus
+# $3: the docker compose file for Attu
+destory_container()
+{
+	CUR_DIR=$1
+	DC_MILV=$2
+	DC_ATTU=$3
 	echo "\n### START: Destory existing containers ##########"
 	docker-compose \
-		-f docker-compose-milvus.yml \
-		-f docker-compose-attu.yml \
-		down
-}
-# }}}
-
-# {{{ clean_up_volume()
-clean_up_volume(){
-	echo "\n### START: Clean up volumes ##########"
-	docker volume rm milvus-etcd
-	docker volume rm milvus-minio
-	docker volume rm milvus-data
+		-f ${CUR_DIR}/${DC_MILV} \
+		-f ${CUR_DIR}/${DC_ATTU} \
+		down -v --remove-orphans
 }
 # }}}
 

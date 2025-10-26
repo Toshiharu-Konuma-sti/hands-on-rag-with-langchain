@@ -5,23 +5,20 @@ CUR_DIR=$(cd $(dirname $0); pwd)
 . ${CUR_DIR}/functions.sh
 . ${CUR_DIR}/variables.sh
 
-# VOL_DIR=${CUR_DIR}/volumes/
-
 case "$1" in
 	"down")
 		clear
 		start_banner
-		destory_container
-		clean_up_volume
+		destory_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
 		show_list_container
 		finish_banner ${S_TIME}
 		;;
 	"up")
 		clear
 		start_banner
-		get_yaml_for_milvus $VDB_YML
-		modify_yaml_for_milvus ${CUR_DIR}
-		create_container
+		get_yaml_for_milvus "${YML_URL_MILV}" "${CUR_DIR}" "${DOCK_COMP_MILV}"
+		modify_yaml_for_milvus "${CUR_DIR}" "${DOCK_COMP_MILV}"
+		create_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
 		show_list_container
 		show_url
 		finish_banner ${S_TIME}
@@ -36,13 +33,12 @@ case "$1" in
 	"")
 		clear
 		start_banner
-		destory_container
-		clean_up_volume
-		get_yaml_for_milvus $VDB_YML
-		modify_yaml_for_milvus ${CUR_DIR}
-		create_container
+		destory_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
+		get_yaml_for_milvus "${YML_URL_MILV}" "${CUR_DIR}" "${DOCK_COMP_MILV}"
+		modify_yaml_for_milvus "${CUR_DIR}" "${DOCK_COMP_MILV}"
+		create_container "${CUR_DIR}" "${DOCK_COMP_MILV}" "${DOCK_COMP_ATTU}"
 		show_list_container
-		show_url
+		ehow_url
 		finish_banner ${S_TIME}
 		;;
 	*)
