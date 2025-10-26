@@ -114,12 +114,15 @@ class MyGenerator:
             except ImportError:
                 print("- OpenVINO (optimum-intel) not found. Will use PyTorch (AutoModelForCausalLM).")
         print(">>> 2/5[%s]: Create a model" % (my_method))
+        pipeline_kwargs = {
+            'max_new_tokens': 1024,
+        }
         if IS_AVAILABLE_OVMODEL:
             print("- It will use OVModelForCausalLM.from_pretrained().")
             model = OVModelForCausalLM.from_pretrained(
                 trained_model_name,
-                export=True,
-                device="auto",
+                export = True,
+                device = "auto",
                 trust_remote_code = True,
                 token = access_token,
             )
@@ -130,10 +133,11 @@ class MyGenerator:
                 trained_model_name,
                 device_map = "auto",
                 low_cpu_mem_usage = True,
-                torch_dtype = "auto",
+                dtype = "auto",
                 trust_remote_code = True,
                 token = access_token,
             )
+            pipeline_kwargs['dtype'] = "auto"
             print("- model was created by AutoModelForCausalLM.from_pretrained().")
         print(f"- {model.device=}")
         print(">>> 3/5[%s]: tokenizer = AutoTokenizer.from_pretrained()" % (my_method))
@@ -146,8 +150,7 @@ class MyGenerator:
             'text-generation',
             model = model,
             tokenizer = tokenizer,
-            max_new_tokens = 1024,
-            torch_dtype = "auto",
+            **pipeline_kwargs,
         )
         print(">>> 5/5[%s]: llm = HuggingFacePipeline()" % (my_method))
         llm = HuggingFacePipeline(
