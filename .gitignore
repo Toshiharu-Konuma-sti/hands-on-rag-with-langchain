@@ -174,6 +174,7 @@ cython_debug/
 *.swp
 .python-version
 container/docker-compose-milvus.yml
+container/docker-compose-milvus.yml.bak
 container/volumes/
 try-my-hand/.venv/
 
