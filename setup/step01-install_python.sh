@@ -11,7 +11,10 @@ if [ "$(uname)" = "Darwin" ]; then	# for Mac
 	if [ $? -ne 0 ]; then
 		python3 -m ensurepip
 	fi
-	pip install virtualenv
+	python3 -c "import venv"
+	if [ $? -ne 0 ]; then
+		pip install virtualenv
+	fi
 else
 	which python3
 	if [ $? -ne 0 ]; then
