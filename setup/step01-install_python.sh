@@ -16,11 +16,7 @@ if [ "$(uname)" = "Darwin" ]; then	# for Mac
 		pip install virtualenv
 	fi
 else
-	which python3
-	if [ $? -ne 0 ]; then
-		sudo apt install -y python3-pip
-	fi
-	python3 -c "import venv"
+	python3 -c "import ensurepip"
 	if [ $? -ne 0 ]; then
 		sudo apt install -y python3-venv
 	fi
