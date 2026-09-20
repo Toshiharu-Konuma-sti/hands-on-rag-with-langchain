@@ -140,7 +140,7 @@ create_container()
 	DC_MILV=$2
 	DC_ATTU=$3
 	echo "\n### START: Create new containers ##########"
-	docker-compose \
+	docker compose \
 		-f ${CUR_DIR}/${DC_MILV} \
 		-f ${CUR_DIR}/${DC_ATTU} \
 		up -d
@@ -157,7 +157,7 @@ destory_container()
 	DC_MILV=$2
 	DC_ATTU=$3
 	echo "\n### START: Destory existing containers ##########"
-	docker-compose \
+	docker compose \
 		-f ${CUR_DIR}/${DC_MILV} \
 		-f ${CUR_DIR}/${DC_ATTU} \
 		down -v --remove-orphans
